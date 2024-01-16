@@ -1,0 +1,16 @@
+version: '3'
+services:
+  web2:
+    build: .
+    container_name: task-web2
+    environment:
+      - FLAG=krdu{R0b0t5_53cr3T_Fl4G}
+    expose:
+      - 5000
+    networks:
+      ctfnet:
+        ipv4_address: 10.0.0.52
+
+networks:
+  ctfnet:
+    external: true
