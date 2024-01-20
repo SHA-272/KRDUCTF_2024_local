@@ -1,0 +1,33 @@
+The XOR (exclusive OR) operation is a logical operation that returns a true value (1) if the number of true values among the operands is even, and a false value (0) if the number of true values is odd. XOR is used in various fields, including logic, cryptography, programming, and electronics.
+
+The XOR function takes two operands and returns true (1) if only one of them is true. If both operands are false or both are true, the result is false (0).
+
+The truth table for the XOR operation looks as follows:
+
+| A | B | A XOR B |
+|---|---|---------|
+| 0 | 0 |    0    |
+| 0 | 1 |    1    |
+| 1 | 0 |    1    |
+| 1 | 1 |    0    |
+
+Here, A and B are the operands, and "A XOR B" is the result of the XOR operation.
+
+In programming, XOR is often used to solve various tasks. For example, it can be used for bit inversion or swapping values of two variables without using an additional variable:
+
+# Bit inversion
+x = 0b1010
+y = x ^ 0b1111
+print(bin(y))  # Outputs '0b101'
+
+# Swapping variable values
+a = 5
+b = 7
+a = a ^ b
+b = a ^ b
+a = a ^ b
+print(a, b)  # Outputs '7 5'
+
+In cryptography, XOR is frequently employed for data encryption and decryption due to its simplicity and operational efficiency.
+
+krdu{x0r_x0r3d_x0r}
