@@ -6,6 +6,8 @@
 
 https://www.youtube.com/watch?v=KffVhdWAgXc
 
+Автор: [magecode](https://t.me/magecode)
+
 ## Публикация
 
 Дать файлы из папки `./public/`
