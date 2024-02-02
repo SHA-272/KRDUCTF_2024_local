@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cicada</title>
+    <link rel="stylesheet" href="../static/style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Простой Чатбот</h1>
+      <form action="/get_response" method="post">
+        <label for="user_input">Введите фразу:</label>
+        <input type="text" name="user_input" id="user_input" required />
+        <button type="submit">Отправить</button>
+      </form>
+      {% if user_input %}
+      <p>Вы сказали: {{ user_input }}</p>
+      <p>Ответ: {{ response }}</p>
+      {% endif %}
+    </div>
+  </body>
+</html>

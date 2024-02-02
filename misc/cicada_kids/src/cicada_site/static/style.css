@@ -1,0 +1,125 @@
+@font-face {
+  font-family: PixelFont;
+  src: url(./pixeltimes.ttf);
+}
+
+:root {
+  --main-color: #00ff00;
+  --main-color-half: rgba(0, 255, 0, 0.5);
+  --glow-effect: drop-shadow(0 0 5px var(--main-color-half));
+  --font: "PixelFont", monospace;
+}
+
+body {
+  background-color: #0c0c0c;
+  color: var(--main-color);
+  font-family: var(--font);
+  margin: 0;
+  padding: 5vw;
+  filter: var(--glow-effect);
+}
+
+.container {
+  max-width: 600px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: transparent;
+  text-align: center;
+  border: 2px solid var(--main-color);
+}
+
+h1 {
+  color: var(--main-color);
+  text-align: center;
+  font-size: 50px;
+}
+
+button {
+  background-color: transparent;
+  color: var(--main-color);
+  font-family: var(--font);
+  padding: 10px 20px;
+  border: 2px solid var(--main-color);
+  cursor: pointer;
+  font-size: 20px;
+}
+
+input[type="text"] {
+  background-color: #000;
+  color: var(--main-color);
+  font-family: var(--font);
+  padding: 10px;
+  border: 1px solid var(--main-color);
+  margin: 10px;
+  font-size: 20px;
+  width: 10vw;
+  max-width: 100px;
+}
+
+input::placeholder {
+  color: var(--main-color-half);
+}
+
+input:focus {
+  outline: none !important;
+  box-shadow: 0 0 10px var(--main-color-half);
+  border: 1px solid var(--main-color);
+  transform: translateY(2px);
+}
+
+form {
+  text-align: center;
+  margin-top: 20px;
+}
+
+p {
+  margin: 10px 0;
+}
+
+#result {
+  color: var(--main-color);
+}
+
+#total {
+  color: var(--main-color);
+}
+
+/* Animation for button click */
+button:hover {
+  transform: translateY(2px);
+  box-shadow: 0 0 5px var(--main-color-half);
+}
+
+button:active {
+  transform: translateY(4px);
+  box-shadow: 0 0 10px var(--main-color-half);
+}
+
+.equation {
+  font-size: 50px;
+}
+
+#start {
+  font-size: 40px;
+}
+
+a,
+a:active,
+a:visited {
+  color: var(--main-color);
+}
+
+li {
+  list-style-type: decimal;
+  font-size: 25px;
+}
+
+.invite {
+  font-size: 40px;
+}
+
+.hidden {
+  color: transparent;
+  background-color: transparent;
+  overflow: hidden;
+}
