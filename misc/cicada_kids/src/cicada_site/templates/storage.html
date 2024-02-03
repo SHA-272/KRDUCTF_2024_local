@@ -8,15 +8,18 @@
   </head>
   <body>
     <div class="container">
-      <h1>Простой Чатбот</h1>
-      <form action="/get_response" method="post">
-        <label for="user_input">Введите фразу:</label>
-        <input type="text" name="user_input" id="user_input" required />
-        <button type="submit">Отправить</button>
+      <h1>Vault</h1>
+      <form action="" method="post">
+        <input
+          type="text"
+          name="user_input"
+          id="user_input"
+          placeholder='Enter "secret"'
+        />
+        <button type="submit">Send</button>
       </form>
-      {% if user_input %}
-      <p>Вы сказали: {{ user_input }}</p>
-      <p>Ответ: {{ response }}</p>
+      {% if response %}
+      <p>{{ response }}</p>
       {% endif %}
     </div>
   </body>

@@ -1,5 +1,5 @@
-from flask import Flask, render_template, request
-import requests, os, json
+from flask import Flask, render_template, request, make_response
+import requests, os, json, random
 
 app = Flask(__name__)
 
@@ -15,18 +15,62 @@ headers = {
 }
 
 
-responses = {
-    "привет": "Привет! Как дела?",
-    "как дела?": "Хорошо, спасибо. А у тебя?",
-    "пока": "До свидания! Возвращайся скоро.",
+incorrect_responses = [
+    "Congratulations! You must be a genius. Or not.",
+    "Nice try! Maybe next time use your brain cells, they're there for a reason.",
+    "Oh, come on! Even my pet rock could do better.",
+    "Is this your first day using a computer, or are you just naturally clueless?",
+    "Well, that was impressively wrong. Do you practice being this bad?",
+    "Error 404: Correct answer not found. Try again... or not.",
+    "Your answer is like a broken pencil - pointless.",
+    "I've seen better answers from a magic 8-ball.",
+    "If stupidity were a currency, you'd be a billionaire right now.",
+    "Next time, maybe think twice before clicking randomly. Just a suggestion.",
+    "That answer was so wrong, it's breaking my heart. Or maybe it's just breaking basic logic.",
+    "If ignorance is bliss, you must be the happiest person on Earth right now.",
+    "Did you consult a fortune cookie for that answer? Because it's not working like magic.",
+    "I'm not saying your answer is wrong, but even a stopped clock is right twice a day.",
+    "Your answer is wandering in the desert of correctness without a compass.",
+    "Well, aren't you a master of misinformation!",
+    "I've seen better decision-making in a game of rock-paper-scissors.",
+    "If your brain was dynamite, it wouldn't have enough to blow your nose.",
+    "Did you graduate from the University of Dunning-Kruger?",
+    "That answer is so far from correct, it's practically in a different galaxy.",
+    "Well, that wasn't even close. Maybe try guessing lottery numbers instead.",
+    "If wrong answers were an art form, you'd be a Picasso.",
+    "You must have a black belt in misinformation.",
+    "Your answer is like a bad pun - painful for everyone involved.",
+    "Is this a performance art piece titled 'The Failure Symphony'?",
+    "I've seen better answers on the back of cereal boxes.",
+    "Did you learn to count from playing hide and seek with the truth?",
+    "Your answer is like a broken record - repetitive and annoying.",
+    "In the world of correct answers, you're the unicorn - mythical and non-existent.",
+    "If ignorance were a sport, you'd be an Olympic gold medalist.",
+    "Can't you really just write 'secret'?",
+    "Even cracking MD5 is easier",
+]
+
+
+questions = {
+    "secret": "In cryptography, what is the term for a piece of information used to control the operation of an encryption algorithm?",
+    "key": "What is the result of applying a cryptographic function to input data, producing a fixed-size string of characters?",
+    "hash": "MD5: e48e13207341b6bffb7fb1622282247b",
+    "1337": "What decentralized and distributed technology underlies cryptocurrencies, ensuring secure and transparent transactions?",
+    "blockchain": "In cryptography, what is the measure of uncertainty or randomness in a system?",
+    "entropy": "-- --- .-. --.. . ..--.- ... . -.-. .-. . -",
+    "morze_secret": "What type of attack involves trying all possible combinations of a password until the correct one is found?",
+    "bruteforce": "What network security device monitors and controls incoming and outgoing network traffic based on predetermined security rules?",
+    "firewall": "c3VwZXJfc2VjcmV0",
+    "super_secret": "https://cicada.krductf.ru/ee54449478c54a5a5cc4f774e3d4ba34",
 }
 
+keys = list(questions.keys())
+values = list(questions.values())
 
-@app.route("/get_response", methods=["POST"])
-def get_response():
-    user_input = request.form["user_input"].lower()
-    response = responses.get(user_input, "Извините, не могу понять ваш запрос.")
-    return render_template("storage.html", user_input=user_input, response=response)
+random.shuffle(keys)
+random.shuffle(values)
+
+responses = {key.lower(): value for key, value in zip(keys, values)}
 
 
 @app.route("/")
@@ -50,19 +94,39 @@ def level_1():
     return render_template("math.html")
 
 
-@app.route("/4eb5d6bd65ed1b4f5ac431b04a2cac1f")
+@app.route("/4eb5d6bd65ed1b4f5ac431b04a2cac1f", methods=["POST", "GET"])
 def level_2():
-    return render_template("storage.html")
+    user_input = request.form.get("user_input", "").lower()
+    if user_input:
+        response = questions.get(user_input, random.choice(incorrect_responses))
+        return render_template("storage.html", response=response)
+    else:
+        return render_template("storage.html")
 
 
 @app.route("/ee54449478c54a5a5cc4f774e3d4ba34")
 def level_3():
-    return render_template("level_3.html")
+    response = make_response(render_template("cookie.html"))
+    response.set_cookie(
+        "cookie",
+        "aHR0cHM6Ly9jaWNhZGEua3JkdWN0Zi5ydS80OWUzYzE5ODMzMTFhMjc1ZmFkYzE1MDkxNDhmN2ZmMQ==",
+    )
+    return response
 
 
 @app.route("/49e3c1983311a275fadc1509148f7ff1")
 def level_4():
-    return render_template("level_4.html")
+    return render_template("star.html")
+
+
+@app.route("/c4d34107574167d0d7df7edf1169012b")
+def level_5():
+    return render_template("5.html")
+
+
+@app.route("/390f15df565c93c0a56e50b24dc0d5ec")
+def level_6():
+    return render_template("6.html")
 
 
 if __name__ == "__main__":

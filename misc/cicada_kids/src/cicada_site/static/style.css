@@ -3,6 +3,16 @@
   src: url(./pixeltimes.ttf);
 }
 
+@font-face {
+  font-family: Aurebesh;
+  src: url(./AurebeshCondensed.ttf);
+}
+
+::selection {
+  background-color: var(--main-color);
+  color: black;
+}
+
 :root {
   --main-color: #00ff00;
   --main-color-half: rgba(0, 255, 0, 0.5);
@@ -52,8 +62,6 @@ input[type="text"] {
   border: 1px solid var(--main-color);
   margin: 10px;
   font-size: 20px;
-  width: 10vw;
-  max-width: 100px;
 }
 
 input::placeholder {
@@ -122,4 +130,17 @@ li {
   color: transparent;
   background-color: transparent;
   overflow: hidden;
+}
+
+.userAnswer {
+  width: 10vw;
+  max-width: 100px;
+}
+
+.ascii {
+  font-size: 1vw;
+}
+
+.aurebesh {
+  font-family: "Aurebesh";
 }
