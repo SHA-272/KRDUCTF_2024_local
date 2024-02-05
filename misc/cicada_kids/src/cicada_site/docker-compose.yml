@@ -1,7 +1,7 @@
 version: '3'
 
 services:
-  ctf-scoreboard:
+  cicada:
     build: .
     volumes:
       - ./static:/static
@@ -12,7 +12,7 @@ services:
       - CTFD_TASK_ID=87
     networks:
       ctfnet:
-        ipv4_address: 10.0.0.21
+        ipv4_address: 10.0.0.60
 
 networks:
   ctfnet:
