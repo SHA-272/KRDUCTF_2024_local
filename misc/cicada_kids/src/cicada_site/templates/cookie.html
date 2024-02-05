@@ -4,16 +4,19 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Cicada</title>
+    <link rel="icon" href="../static/images/qr_1_0.png" />
     <link rel="stylesheet" href="../static/style.css" />
   </head>
   <body>
     <div class="container">
-      <h1>Go deeper</h1>
+      <h1>Clicker</h1>
       <p>Do you like cookies?</p>
       <span>
-        <button onclick="alert('I have one for you')">Yes</button>
-        <button onclick="alert('You`re a terrible person.')">No</button>
+        <button onclick="yes()">Yes</button>
+        <button onclick="no()">No</button>
       </span>
+      <p id="clickCount">Click count: 0</p>
+      <script src="../static/js/cookie_clicker.js"></script>
     </div>
   </body>
 </html>

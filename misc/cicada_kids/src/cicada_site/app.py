@@ -47,7 +47,10 @@ incorrect_responses = [
     "In the world of correct answers, you're the unicorn - mythical and non-existent.",
     "If ignorance were a sport, you'd be an Olympic gold medalist.",
     "Can't you really just write 'secret'?",
-    "Even cracking MD5 is easier",
+    "Even cracking MD5 is easier.",
+    "Search in the heavens.",
+    "Maybe the answer is on page 404?",
+    "Watch the movie 'Dark Web: Cicada 3301'",
 ]
 
 
@@ -60,8 +63,10 @@ questions = {
     "entropy": "-- --- .-. --.. . ..--.- ... . -.-. .-. . -",
     "morze_secret": "What type of attack involves trying all possible combinations of a password until the correct one is found?",
     "bruteforce": "What network security device monitors and controls incoming and outgoing network traffic based on predetermined security rules?",
-    "firewall": "c3VwZXJfc2VjcmV0",
-    "super_secret": "https://cicada.krductf.ru/ee54449478c54a5a5cc4f774e3d4ba34",
+    "firewall": "c3VwM3JfczNjcjN0",
+    "sup3r_s3cr3t": "https://cicada.krductf.ru/c98a679441798bdb9c194f9ca471e6cd",
+    "please_enter_me_to_the_vault": "https://cicada.krductf.ru/c4d34107574167d0d7df7edf1169012b",
+    "letsbeatheaven": "https://cicada.krductf.ru/390f15df565c93c0a56e50b24dc0d5ec",
 }
 
 keys = list(questions.keys())
@@ -89,13 +94,8 @@ def flag():
     return render_template("flag.html")
 
 
-@app.route("/c98a679441798bdb9c194f9ca471e6cd")
-def level_1():
-    return render_template("math.html")
-
-
 @app.route("/4eb5d6bd65ed1b4f5ac431b04a2cac1f", methods=["POST", "GET"])
-def level_2():
+def vault():
     user_input = request.form.get("user_input", "").lower()
     if user_input:
         response = questions.get(user_input, random.choice(incorrect_responses))
@@ -104,8 +104,13 @@ def level_2():
         return render_template("storage.html")
 
 
+@app.route("/c98a679441798bdb9c194f9ca471e6cd")
+def math():
+    return render_template("math.html")
+
+
 @app.route("/ee54449478c54a5a5cc4f774e3d4ba34")
-def level_3():
+def cookie():
     response = make_response(render_template("cookie.html"))
     response.set_cookie(
         "cookie",
@@ -115,18 +120,23 @@ def level_3():
 
 
 @app.route("/49e3c1983311a275fadc1509148f7ff1")
-def level_4():
+def star():
     return render_template("star.html")
 
 
 @app.route("/c4d34107574167d0d7df7edf1169012b")
-def level_5():
-    return render_template("5.html")
+def music():
+    return render_template("moonlight.html")
 
 
 @app.route("/390f15df565c93c0a56e50b24dc0d5ec")
-def level_6():
-    return render_template("6.html")
+def qrcode():
+    return render_template("qrcode.html")
+
+
+@app.errorhandler(404)
+def page_not_found(e):
+    return render_template("404.html"), 404
 
 
 if __name__ == "__main__":

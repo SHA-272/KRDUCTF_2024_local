@@ -45,7 +45,7 @@ function runTests() {
       document.getElementById("total").style.color = "red";
     } else
       document.getElementById("total").innerHTML =
-        'Congratulations! <a href="https://cicada.krductf.ru/4eb5d6bd65ed1b4f5ac431b04a2cac1f">Next level</a>';
+        'Congratulations! <a href="https://cicada.krductf.ru/ee54449478c54a5a5cc4f774e3d4ba34">Next level</a>';
   }
 }
 
