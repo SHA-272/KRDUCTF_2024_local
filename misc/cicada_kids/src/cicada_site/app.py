@@ -63,9 +63,9 @@ questions = {
     "entropy": "-- --- .-. --.. . ... . -.-. .-. . -",
     "morzesecret": "What type of attack involves trying all possible combinations of a password until the correct one is found?",
     "bruteforce": "What network security device monitors and controls incoming and outgoing network traffic based on predetermined security rules?",
-    "firewall": "c3VwM3JfczNjcjN0",
-    "sup3r_s3cr3t": "https://cicada.krductf.ru/c98a679441798bdb9c194f9ca471e6cd",
-    "please_enter_me_to_the_vault": "https://cicada.krductf.ru/c4d34107574167d0d7df7edf1169012b",
+    "firewall": "c3VwM3JzM2NyM3Q=",
+    "sup3rs3cr3t": "https://cicada.krductf.ru/c98a679441798bdb9c194f9ca471e6cd",
+    "vaultsecret": "https://cicada.krductf.ru/c4d34107574167d0d7df7edf1169012b",
     "letsbeatheaven": "https://cicada.krductf.ru/390f15df565c93c0a56e50b24dc0d5ec",
 }
 
