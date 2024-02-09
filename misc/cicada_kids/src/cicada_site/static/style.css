@@ -21,6 +21,7 @@
   --back-color-tr: rgba(0, 0, 0, 0.2);
   --glow-effect: drop-shadow(0 0 5px var(--main-color-half));
   --font: "PixelFont", monospace;
+  --viniette: inset 0 0 200px #000, inset 0 0 100px #000, inset 0 0 100px #000;
 }
 
 body {
@@ -38,7 +39,7 @@ body {
   padding: 20px;
   background-color: transparent;
   text-align: center;
-  border: 2px solid var(--main-color);
+  border: 4px solid var(--main-color);
 }
 
 h1 {
@@ -141,7 +142,7 @@ li {
 }
 
 .aurebesh {
-  font-family: "Aurebesh";
+  font-family: "Aurebesh", monospace;
 }
 
 audio::-webkit-media-controls-panel {
@@ -172,7 +173,6 @@ img {
 }
 
 .terminal {
-  background-color: transparent;
   overflow: hidden;
   content: "";
   position: absolute;
@@ -195,10 +195,9 @@ img {
   background-repeat: repeat;
   animation: animatedBackground 4s linear infinite;
 
-  -webkit-box-shadow: inset 0 0 50px #000, inset 0 0 50px #000,
-    inset 0 0 50px #000;
+  -webkit-box-shadow: var(--viniette);
 
-  -moz-box-shadow: inset 0 0 50px #000, inset 0 0 50px #000, inset 0 0 50px #000;
+  -moz-box-shadow: var(--viniette);
 
-  box-shadow: inset 0 0 50px #000, inset 0 0 50px #000, inset 0 0 50px #000;
+  box-shadow: var(--viniette);
 }
